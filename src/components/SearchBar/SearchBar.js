@@ -15,11 +15,17 @@ class SearchBar extends React.Component{
 			"Most Reviewed": "review_count"
 		}
 	}
+	//return the current CSS class for a sorting option. 
+	getSortByClass(sortByOption) {
+		this.state.sortBy=sortByOption ? 'active' : '';
+	}
+
+
 	// will return a HTML list with key the values of the object properties of this.sortByOptions: best_match, rating, review_count. The list shows the properties: "Best Match", "Highest Rating" and "Most Reviewed"
 	renderSortByOptions() {
 		return Object.keys(this.sortByOptions).map( sortByOption => {
 			const sortByOptionValue = this.sortByOptions[sortByOption];
-			return <li key={sortByOptionValue}>this.sortByOption</li>
+			return <li key={sortByOptionValue}>{sortByOption}</li>
 		});
 	}
 	render() {
