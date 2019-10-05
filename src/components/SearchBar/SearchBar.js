@@ -14,6 +14,7 @@ class SearchBar extends React.Component{
 			"Highest Rated": "rating", 
 			"Most Reviewed": "review_count"
 		}
+		//this.handleSortByChange = this.handleSortByChange.bind(this)
 	}
 	//return the current CSS class for a sorting option. 
 	getSortByClass(sortByOption) {
@@ -22,6 +23,7 @@ class SearchBar extends React.Component{
 
 	//sets the state of a sorting option.
 	handleSortByChange(sortByOption) {
+		console.log("Handle Sort By Change", sortByOption)
 		this.setState({sortBy: sortByOption})
 	}
 
@@ -29,7 +31,7 @@ class SearchBar extends React.Component{
 	renderSortByOptions() {
 		return Object.keys(this.sortByOptions).map( sortByOption => {
 			const sortByOptionValue = this.sortByOptions[sortByOption];
-			return <li className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue}>{sortByOption}</li>
+			return <li className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue} onClick={this.handleSortByChange.bind(this, sortByOptionValue)}>{sortByOption}</li>
 		});
 	}
 	render() {
