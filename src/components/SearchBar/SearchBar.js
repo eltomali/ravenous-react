@@ -20,6 +20,10 @@ class SearchBar extends React.Component{
 		this.state.sortBy=sortByOption ? 'active' : '';
 	}
 
+	//sets the state of a sorting option.
+	handleSortByChange(sortByOption) {
+		this.setState({sortBy: sortByOption})
+	}
 
 	// will return a HTML list with key the values of the object properties of this.sortByOptions: best_match, rating, review_count. The list shows the properties: "Best Match", "Highest Rating" and "Most Reviewed"
 	renderSortByOptions() {
