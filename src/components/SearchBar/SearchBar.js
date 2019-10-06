@@ -9,13 +9,15 @@ class SearchBar extends React.Component{
 			location: "", 
 			sortBy: "best_match"
 		}
+		this.handleTermChange = this.handleTermChange.bind(this);
+		this.handleLocationChange = this.handleLocationChange.bind(this);
+	}
 		this.sortByOptions = {
 			"Best Match": "best_match", 
 			"Highest Rated": "rating", 
 			"Most Reviewed": "review_count"
 		}
-		//this.handleSortByChange = this.handleSortByChange.bind(this)
-	}
+		
 	//return the current CSS class for a sorting option. 
 	getSortByClass(sortByOption) {
 		this.state.sortBy=sortByOption ? 'active' : '';
@@ -25,6 +27,13 @@ class SearchBar extends React.Component{
 	handleSortByChange(sortByOption) {
 		console.log("Handle Sort By Change", sortByOption)
 		this.setState({sortBy: sortByOption})
+	}
+
+	handleTermChange(evt) {
+		this.setState({term: evt.target.value});
+	}
+	handleLocationChange(evt) {
+		this.setState({location: evt.target.value});
 	}
 
 	// will return a HTML list with key the values of the object properties of this.sortByOptions: best_match, rating, review_count. The list shows the properties: "Best Match", "Highest Rating" and "Most Reviewed"
