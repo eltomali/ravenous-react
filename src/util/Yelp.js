@@ -1,13 +1,7 @@
-//Check Key
-// if(process.env.REACT_APP_API_KEY === undefined){
-//   console.error('No Api Key\nAdd `apiKey=<KEY>` in `.env` file');
-//   alert('No Api Key!\nAdd `apiKey=<KEY>` in `.env` file');
-// }
-import {apiKey} from '../util/key/key';
-
+const apiKey = process.env.REACT_APP_RAVENOUS_API_KEY;
 const Yelp = {
   search(term, location, sortBy) {
-    console.log('Yelp.search working');
+    checkKey();
     const url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`;
     
     const httpOptions = {
@@ -39,4 +33,10 @@ const Yelp = {
   }
 } 
 
+const checkKey = () => {
+  if(process.env.REACT_APP_API_KEY === undefined){
+    console.error('No Api Key\nAdd `apiKey=<KEY>` in `.env` file');
+    alert('No Api Key!\nAdd `apiKey=<KEY>` in `.env` file');
+  }
+}
 export default Yelp;
