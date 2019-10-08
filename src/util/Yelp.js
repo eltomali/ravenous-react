@@ -1,8 +1,8 @@
 // Check Key
-if(process.env.apiKey === undefined){
-  console.error('No Api Key\nAdd `apiKey=<KEY>` in `.env` file');
-  alert('No Api Key!\nAdd `apiKey=<KEY>` in `.env` file');
-}
+// if(process.env.apiKey === undefined){
+//   console.error('No Api Key\nAdd `apiKey=<KEY>` in `.env` file');
+//   alert('No Api Key!\nAdd `apiKey=<KEY>` in `.env` file');
+// }
 
 
 export const Yelp = {
@@ -35,4 +35,4 @@ export const Yelp = {
       }
     });
   }
-}
+} 
